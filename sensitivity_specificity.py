@@ -369,7 +369,10 @@ def pdf_generator(correctly_labeled: int, mislabeled: int, xlab: str, title: str
     return mode, (min_95, max_95)
 
 
-def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int], hypotheses: int = 100, save: bool = True, title: str = "Sensitivity and Specificity PDFs") -> tuple[tuple[float, tuple[float, float]], tuple[float, tuple[float, float]]]:
+def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int],
+                                 hypotheses: int = 100, save: bool = True,
+                                 title: str = "Sensitivity and Specificity PDFs") \
+        -> tuple[tuple[float, tuple[float, float]], tuple[float, tuple[float, float]]]:
     """
     makes pdf for sensitivity and specificity next to each other
     :param confusion_matrix: confusion matrix containing chart with correct and incorrect classifications. needs to be 2x2 of ints
@@ -381,17 +384,13 @@ def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int], hypo
     fig, ax = plt.subplots(1, 2, figsize=(8, 5))
     new_tick_labels = np.linspace(0, 100, 6, dtype=int)
 
-    correctly_labeled_spam, mislabeled_spam = confusion_matrix[0]
-    mislabeled_ham, correctly_labeled_ham = confusion_matrix[1]
+    TN, FP = confusion_matrix[0]
+    FN, TP = confusion_matrix[1]
 
     # sensitivity
-    sensitivity_df, sensitivity_obj = binomial_df(hypotheses, correctly_labeled_spam + mislabeled_spam, correctly_labeled_spam)
+    sensitivity_df, sensitivity_obj = binomial_df(hypotheses, TN + FP, TN)
 
     ax[0].bar(range(len(sensitivity_df["posterior"])), sensitivity_df["posterior"], edgecolor="dodgerblue")
-
-    import seaborn as sns
-    # sns.kdeplot(x=range(len(sensitivity_df["posterior"])), y=sensitivity_df["posterior"], ax=ax[0], fill=True)
-
     ax[0].set_xlabel("Specificity (%)")
     ax[0].set_ylabel("Posterior Probability")
 
@@ -402,12 +401,8 @@ def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int], hypo
     ax[0].set_xticklabels(new_tick_labels)
 
     # specificity
-    specificity_df, specificity_obj = binomial_df(hypotheses, correctly_labeled_ham + mislabeled_ham, correctly_labeled_ham)
+    specificity_df, specificity_obj = binomial_df(hypotheses, TP + FN, TP)
     ax[1].bar(range(len(specificity_df["posterior"])), specificity_df["posterior"], edgecolor="dodgerblue")
-    # sns.kdeplot(data=specificity_df, x="hypothesis", y="posterior", ax=ax[1], fill=True, bw_adjust=0.5)
-
-    # print(specificity_df[specificity_df["posterior"]==specificity_df["posterior"].min()])
-
     ax[1].set_xlabel("Sensitivity (%)")
 
     #  make sensitivity x-axis go from 0 to 100 instead of to 500
