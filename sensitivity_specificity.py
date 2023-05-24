@@ -414,7 +414,7 @@ def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int],
     fig.suptitle(title)
     plt.subplots_adjust(top=0.9)  # adjust the bottom margin
     if save:
-        plt.savefig(f"Spam Classifier Sensitivity and Specificity.png", dpi=300)
+        plt.savefig(f"Sensitivity and Specificity.png", dpi=300)
     plt.show()
 
     sensitivity_min_95, sensitivity_max_95 = confidence(sensitivity_df)
