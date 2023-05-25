@@ -23,6 +23,7 @@
 #### -- Project Status: In-Progress
 
 LINK TO NOTEBOOK
+
 LINK TO PREDICTION WEBSITE
 
 # Table of Contents
@@ -53,6 +54,7 @@ LINK TO PREDICTION WEBSITE
 12.  HeartDisease: output class [1: heart disease, 0: Normal]
 
 **Source**
+
 This dataset was created by combining different datasets already available independently but not combined before. In this dataset, 5 heart datasets are combined over 11 common features which makes it the largest heart disease dataset available so far for research purposes. The five datasets used for its curation are:
 
 -   Cleveland: 303 observations
