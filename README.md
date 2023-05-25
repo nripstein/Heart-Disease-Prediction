@@ -24,7 +24,7 @@
 
 LINK TO NOTEBOOK
 
-LINK TO PREDICTION WEBSITE
+[LINK TO PREDICTION WEBSITE](https://nripstein-heart-disease-pre-heart-disease-prediction-app-wsdsib.streamlit.app/)
 
 # Table of Contents
 
