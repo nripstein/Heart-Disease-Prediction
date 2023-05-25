@@ -22,6 +22,9 @@
 
 #### -- Project Status: In-Progress
 
+LINK TO NOTEBOOK
+LINK TO PREDICTION WEBSITE
+
 # Table of Contents
 
 ## Objective
