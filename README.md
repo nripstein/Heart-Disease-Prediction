@@ -106,14 +106,21 @@ Questions I Asked About the Data:
 </details>
 
 <details open>
-    <summary><H2>Feature Selection With Inferential Statistics</H2></summary>
-### One-Way ANOVA
-- p<0.05 for all features
-- more about why I included it
-### Chi-Squared Test
-- p<0.05 for all features
-- more about why I included it
+    <summary><h2>Feature Selection With Inferential Statistics</h2></summary>
+    
+<H3>One-Way ANOVA</H3>
+	<ol>
+		<li>p<0.05 for all features</li>
+		<li>more about why I included it</li>
+	</ol>
+   <h3>Chi-Squared Test</h3>
+    
+<ol>
+		<li>p<0.05 for all features</li>
+		<li>more about why I included it</li>
+	</ol>
 </details>
+
 
 <details open>
     <summary><H2>Classification Models</H2></summary>
