@@ -1,3 +1,4 @@
+
 <div align="center">
   <h1>Heart Disease Prediction</h1>
 </div>
@@ -108,11 +109,11 @@ Questions I Asked About the Data:
 <details open>
     <summary><h2>Feature Selection With Inferential Statistics</h2></summary>
     
-<H3>One-Way ANOVA</H3>
-	<ol>
-		<li>p<0.05 for all features</li>
-		<li>more about why I included it</li>
-	</ol>
+<H3>ANOVA</H3>
+Analysis of Variance (ANOVA) is a method from inferential statistics that aims to determine if there is a statistically significant difference between the means of two (or more) groups.  This makes it a strong candidate for determining importance of continuous features in predicting a categorical output.  I used a One-Way ANOVA to test the importance of each continuous feature by checking  whether presence of heart disease had a statistically significant effect on the feature's mean.  
+<H4>ANOVA Results</H4>
+I found that there was a statistically significant difference (p<0.05) for each continuous feature.  
+
    <h3>Chi-Squared Test</h3>
     
 <ol>
