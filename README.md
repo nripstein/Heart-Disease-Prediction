@@ -21,7 +21,8 @@
 
 #### -- Project Status: In-Progress
 
-[LINK TO NOTEBOOK]()
+[LINK TO NOTEBOOK](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/heart%20failure%20prediction%20notebook.ipynb)
+
 [LINK TO PREDICTION WEBSITE](https://nripstein-heart-disease-pre-heart-disease-prediction-app-wsdsib.streamlit.app/)
 
 # Table of Contents
