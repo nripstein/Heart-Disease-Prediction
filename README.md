@@ -4,17 +4,16 @@
 
 
 <div align="center">
-<img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" />
-    <img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white" />
-    <img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" />
-    <img src="https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white" />
-    <img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black" />
-        <img src="https://img.shields.io/badge/seaborn-%23565E64.svg?style=for-the-badge&logo=seaborn&logoColor=white" />
-    <img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white" />
-    <img src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white" />
-    <img src="https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white" />
-    <img  src="https://img.shields.io/badge/Streamlit-%235F4690.svg?style=for-the-badge&logo=streamlit&logoColor=white" />
-
+    <a href="https://www.python.org"><img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" /></a>
+    <a href="https://numpy.org"><img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white" /></a>
+    <a href="https://pandas.pydata.org"><img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" /></a>
+    <a href="https://www.scipy.org"><img src="https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white" /></a>
+    <a href="https://matplotlib.org"><img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black" /></a>
+    <a href="https://seaborn.pydata.org"><img src="https://img.shields.io/badge/seaborn-%23565E64.svg?style=for-the-badge&logo=seaborn&logoColor=white" /></a>
+    <a href="https://scikit-learn.org"><img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white" /></a>
+    <a href="https://www.tensorflow.org"><img src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white" /></a>
+    <a href="https://keras.io"><img src="https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white" /></a>
+    <a href="https://streamlit.io"><img src="https://img.shields.io/badge/Streamlit-%235F4690.svg?style=for-the-badge&logo=streamlit&logoColor=white" /></a>
 </div>
 <br>
 
@@ -27,17 +26,29 @@ LINK TO NOTEBOOK
 [LINK TO PREDICTION WEBSITE](https://nripstein-heart-disease-pre-heart-disease-prediction-app-wsdsib.streamlit.app/)
 
 # Table of Contents
+- [Objective](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#objective)
+- [Usage](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#usage)
+- [Dataset](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#dataset)
+- [Exploratory Data Analysis](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#exploratory-data-analysis)
+- [Feature Selection With Inferential Statistics](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#feature-selection-with-inferential-statistics)
+- [Classification Models](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#classification-models)
 
-## Objective
+<details open>
+  <summary><H2>Objective</H2></summary>
 - I'll briefly describe the main goal of the project and potential impact. (3-6 Sentences)
+</details>
 
 
-
-## Usage
+<details open>
+  <summary><H2>Usage</H2></summary>
 - talk about how to use streamlit app with gifs
+-
+</details>
 
-## [Dataset](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction)
+<details>
+  <summary><H2>Dataset</H2></summary>
 
+[Link to dataset](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction)
 
 **Attribute Information**
 1.  Age: age of the patient [years]
@@ -80,33 +91,42 @@ David W. Aha (aha '@' ics.uci.edu) (714) 856-8779
 The datasets from the above sources were combined into the dataset I used by Kaggle user fedesoriano.
 
 Data source Citation:
+  
 fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 22, 2023] from [https://www.kaggle.com/fedesoriano/heart-failure-prediction](https://www.kaggle.com/fedesoriano/heart-failure-prediction).
+</details>
 
-
-## Exploratory Data Analysis
+<details open>
+    <summary><H2>Exploratory Data Analysis</H2></summary>
 Questions I Asked About the Data: 
 1. How many positive and negative examples are there of the target variable?  
 2. How are continuous variables distributed (in particular, are they normally distributed)?  
 3. How do continuous variables change in conjunction with the target variable?  
 4. How many examples are there of each categorical variable?  
 5. How does each categorical variable change in conjunction with the target variable?
+</details>
 
-## Feature Selection With Inferential Statistics
+<details open>
+    <summary><H2>Feature Selection With Inferential Statistics</H2></summary>
 ### One-Way ANOVA
 - p<0.05 for all features
 - more about why I included it
 ### Chi-Squared Test
 - p<0.05 for all features
 - more about why I included it
+</details>
 
-## Classification Models
+<details open>
+    <summary><H2>Classification Models</H2></summary>
 1. Logistic Regression
 2. Random Forest
 3. Support Vector Machine
 4. Gaussian Naive Bayes
 5. (Bernoulli Naive Bayes if I include it)
 6. Neural Network
+</details>
 
-## Evaluation and Results
+<details open>
+  <summary><H2>Evaluation and Results</H2></summary>
 - sensitivity and specificity and Bayesian PDFs
 - other metrics
+</details>
