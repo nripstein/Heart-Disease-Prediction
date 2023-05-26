@@ -20,7 +20,7 @@
 
 
 
-#### -- Project Status: In-Progress
+#### -- Project Status: In-Progress (ESPECIALLY THIS README)
 
 [LINK TO NOTEBOOK](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/heart%20failure%20prediction%20notebook.ipynb)
 
@@ -97,14 +97,22 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
 </details>
 
 <details open>
-    <summary><H2>Exploratory Data Analysis</H2></summary>
-Questions I Asked About the Data: 
-1. How many positive and negative examples are there of the target variable?  
-2. How are continuous variables distributed (in particular, are they normally distributed)?  
-3. How do continuous variables change in conjunction with the target variable?  
-4. How many examples are there of each categorical variable?  
-5. How does each categorical variable change in conjunction with the target variable?
+    <summary><h2>Exploratory Data Analysis</h2></summary>
+    <p>Questions I Asked About the Data:</p>
+    <ol>
+        <li>How many positive and negative examples are there of the target variable?</li>
+        <li>How are continuous variables distributed (in particular, are they normally distributed)?</li>
+        <li>How do continuous variables change in conjunction with the target variable?</li>
+        <li>How many examples are there of each categorical variable?</li>
+        <li>How does each categorical variable change in conjunction with the target variable?</li>
+    </ol>
+	
+
+<img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="75%">
+<img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/eaf1a71b-2a5c-4345-824f-c433a36cadad" alt="categorical_target" width="75%">
+
 </details>
+
 
 <details open>
     <summary><h2>Feature Selection With Inferential Statistics</h2></summary>
