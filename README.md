@@ -96,21 +96,38 @@ Data source Citation:
 fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 22, 2023] from [https://www.kaggle.com/fedesoriano/heart-failure-prediction](https://www.kaggle.com/fedesoriano/heart-failure-prediction).
 </details>
 
+
 <details open>
     <summary><h2>Exploratory Data Analysis</h2></summary>
     <p>Questions I Asked About the Data:</p>
     <ol>
-        <li>How many positive and negative examples are there of the target variable?</li>
-        <li>How are continuous variables distributed (in particular, are they normally distributed)?</li>
-        <li>How do continuous variables change in conjunction with the target variable?</li>
-        <li>How many examples are there of each categorical variable?</li>
-        <li>How does each categorical variable change in conjunction with the target variable?</li>
+        <details open>
+            <summary>How many positive and negative examples are there of the target variable?</summary>
+            <p>Answer goes here...</p>
+	     <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/697609a2-8ef0-4ea5-bf7a-a263102b9ed8" alt="target_freq" width="75%">
+        </details>
+        <details open>
+            <summary>How are continuous variables distributed (in particular, are they normally distributed)?</summary>
+            <p>Answer goes here...</p>
+	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/42432275-9270-4a28-b9d0-8c98704126a0" alt="continuous_distribution" width="75%">
+	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/745cbb3c-0248-4b97-baee-aa6b309bee99" alt="qq_plots" width="75%">
+        </details>
+        <details open>
+            <summary>How do continuous variables change in conjunction with the target variable?</summary>
+            <p>Answer goes here...</p>
+            <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/eaf1a71b-2a5c-4345-824f-c433a36cadad" alt="continuous_target" width="75%">
+        </details>
+        <details open>
+            <summary>How many examples are there of each categorical variable?</summary>
+	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/7e0ee7a7-1514-476c-983d-14ca90e77e42" alt="continuous_target" width="75%">
+            <p>Answer goes here...</p>
+        </details>
+        <details open>
+            <summary>How does each categorical variable change in conjunction with the target variable?</summary>
+            <p>Answer goes here...</p>
+            <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="75%">
+        </details>
     </ol>
-	
-
-<img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="75%">
-<img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/eaf1a71b-2a5c-4345-824f-c433a36cadad" alt="categorical_target" width="75%">
-
 </details>
 
 
