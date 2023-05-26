@@ -21,17 +21,16 @@
 
 #### -- Project Status: In-Progress
 
-LINK TO NOTEBOOK
-
+[LINK TO NOTEBOOK]()
 [LINK TO PREDICTION WEBSITE](https://nripstein-heart-disease-pre-heart-disease-prediction-app-wsdsib.streamlit.app/)
 
 # Table of Contents
 - [Objective](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#objective)
-- [Usage](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#usage)
+- [Usage](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#usage)
 - [Dataset](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#dataset)
-- [Exploratory Data Analysis](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#exploratory-data-analysis)
-- [Feature Selection With Inferential Statistics](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#feature-selection-with-inferential-statistics)
-- [Classification Models](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#classification-models)
+- [Exploratory Data Analysis](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#exploratory-data-analysis)
+- [Feature Selection With Inferential Statistics](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#feature-selection-with-inferential-statistics)
+- [Classification Models](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#classification-models)
 
 <details open>
   <summary><H2>Objective</H2></summary>
