@@ -28,7 +28,7 @@ LINK TO NOTEBOOK
 # Table of Contents
 - [Objective](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#objective)
 - [Usage](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#usage)
-- [Dataset](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#dataset)
+- [Dataset](https://github.com/nripstein/Heart-Disease-Prediction/main/README.md#dataset)
 - [Exploratory Data Analysis](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#exploratory-data-analysis)
 - [Feature Selection With Inferential Statistics](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#feature-selection-with-inferential-statistics)
 - [Classification Models](https://github.com/nripstein/Heart-Disease-Prediction/edit/main/README.md#classification-models)
