@@ -42,6 +42,8 @@
 
 <details open>
   <summary><H2>Usage</H2></summary>
+	<a href="https://nripstein-heart-disease-pre-heart-disease-prediction-app-wsdsib.streamlit.app/"><img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/45d41781-87cc-454d-bdab-2ddb09c539a1" alt="Animated GIF">
+
 - talk about how to use streamlit app with gifs
 -
 </details>
@@ -104,28 +106,28 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
         <details open>
             <summary>How many positive and negative examples are there of the target variable?</summary>
             <p>Answer goes here...</p>
-	     <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/697609a2-8ef0-4ea5-bf7a-a263102b9ed8" alt="target_freq" width="75%">
+	     <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/697609a2-8ef0-4ea5-bf7a-a263102b9ed8" alt="target_freq" width="90%">
         </details>
         <details open>
             <summary>How are continuous variables distributed (in particular, are they normally distributed)?</summary>
             <p>Answer goes here...</p>
-	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/42432275-9270-4a28-b9d0-8c98704126a0" alt="continuous_distribution" width="75%">
-	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/745cbb3c-0248-4b97-baee-aa6b309bee99" alt="qq_plots" width="75%">
+	    <img src=https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/62b9a4ff-74a2-4a57-84e1-92a1a767425b" alt="continuous_distribution" width="90%">
+	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/745cbb3c-0248-4b97-baee-aa6b309bee99" alt="qq_plots" width="90%">
         </details>
         <details open>
             <summary>How do continuous variables change in conjunction with the target variable?</summary>
             <p>Answer goes here...</p>
-            <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/eaf1a71b-2a5c-4345-824f-c433a36cadad" alt="continuous_target" width="75%">
+            <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/eaf1a71b-2a5c-4345-824f-c433a36cadad" alt="continuous_target" width="90%">
         </details>
         <details open>
             <summary>How many examples are there of each categorical variable?</summary>
-	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/7e0ee7a7-1514-476c-983d-14ca90e77e42" alt="continuous_target" width="75%">
+	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/7e0ee7a7-1514-476c-983d-14ca90e77e42" alt="continuous_target" width="90%">
             <p>Answer goes here...</p>
         </details>
         <details open>
             <summary>How does each categorical variable change in conjunction with the target variable?</summary>
             <p>Answer goes here...</p>
-            <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="75%">
+            <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="90%">
         </details>
     </ol>
 </details>
@@ -133,7 +135,9 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
 
 <details open>
     <summary><h2>Feature Selection With Inferential Statistics</h2></summary>
-    
+	<p>Reduces Overfitting: Less redundant data implies less opportunity to make decisions based on noise.
+		
+Improves Accuracy: Less misleading data implies modeling accuracy improvements.</p>
 <H3>ANOVA</H3>
 Analysis of Variance (ANOVA) is a method from inferential statistics that aims to determine if there is a statistically significant difference between the means of two (or more) groups.  This makes it a strong candidate for determining importance of continuous features in predicting a categorical output.  I used a One-Way ANOVA to test the importance of each continuous feature by checking  whether presence of heart disease had a statistically significant effect on the feature's mean.  
 <H4>ANOVA Results</H4>
