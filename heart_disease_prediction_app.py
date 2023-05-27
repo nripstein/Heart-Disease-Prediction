@@ -27,7 +27,7 @@ model_options = ["Logistic Regression (default)",
                  "Gaussian Naive Bayes",
                  "Random Forest Classifier",
                  "Neural Network"]
-selected_model = st.selectbox("Classification Model (THIS SELECTOR DOES NOTHING CURRENTLY)", model_options)
+selected_model = st.selectbox("Classification Model", model_options) #  (THIS SELECTOR DOES NOTHING CURRENTLY)
 
 
 def convert_categorical_variables(sex_, chest_pain_, fasting_bs_, resting_ECG_, ExerciseAngina_, ST_Slope_):
@@ -56,7 +56,7 @@ def convert_categorical_variables(sex_, chest_pain_, fasting_bs_, resting_ECG_, 
     }
     ST_Slope_conversion = {
         "Sloping Upwards": "Up",
-        "Flat": "flat",
+        "Flat": "Flat",
         "Sloping Downwards": "Down"
     }
     return sex_conversion[sex_], chest_pain_conversion[chest_pain_], fasting_bs_conversion[fasting_bs_], resting_ECG_conversion[resting_ECG_], ExerciseAngina_conversion[ExerciseAngina_], ST_Slope_conversion[ST_Slope_]
