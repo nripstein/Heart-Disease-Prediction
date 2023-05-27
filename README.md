@@ -42,11 +42,9 @@
 
 <details open>
   <summary><H2>Usage</H2></summary>
-	<a href="https://nripstein-heart-disease-pre-heart-disease-prediction-app-wsdsib.streamlit.app/"><img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/45d41781-87cc-454d-bdab-2ddb09c539a1" alt="Animated GIF">
-
-- talk about how to use streamlit app with gifs
--
+	<a href="https://nripstein-heart-disease-pre-heart-disease-prediction-app-wsdsib.streamlit.app/"><img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/45d41781-87cc-454d-bdab-2ddb09c539a1" alt="Animated GIF"></a>
 </details>
+
 
 <details>
   <summary><H2>Dataset</H2></summary>
