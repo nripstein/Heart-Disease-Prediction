@@ -122,8 +122,8 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
         </details>
         <details open>
             <summary>How do continuous variables change in conjunction with the target variable?</summary>
-            <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/eaf1a71b-2a5c-4345-824f-c433a36cadad" alt="continuous_target" width="90%">
-	    <p>A visual inspection indicates that age, maximum heart rate and oldpeak are most different in Heart Disease positive and negative.  <a href="https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#feature-selection-with-inferential-statistics">This was later confirmed rigorously with an ANOVA</a></p>
+            <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/eaf1a71b-2a5c-4345-824f-c433a36cadad" alt="continuous_target" width="75%">
+	    <p>A visual inspection indicates that age, maximum heart rate and oldpeak are most different in Heart Disease positive and negative.  <a href="https://github.com/nripstein/Heart-Disease-Prediction/#anova">This was later confirmed rigorously with an ANOVA</a></p>
         </details>
         <details open>
             <summary>How many examples are there of each categorical variable?</summary>
@@ -147,6 +147,10 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
 Analysis of Variance (ANOVA) is a method from inferential statistics that aims to determine if there is a statistically significant difference between the means of two (or more) groups.  This makes it a strong candidate for determining importance of continuous features in predicting a categorical output.  I used a One-Way ANOVA to test the importance of each continuous feature by checking  whether presence of heart disease had a statistically significant effect on the feature's mean.  
 <H4>ANOVA Results</H4>
 I found that there was a statistically significant difference (p<0.05) for each continuous feature.  This led me to decide to keep all continuous features as part of my classification models.
+<br>
+
+<img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/b1fe7f56-d9b8-4149-a72a-3bf6f0b3bfda" alt="ANOVA_results" width="50%">
+																	
 
    <h3>Chi-Squared Test</h3>
     
