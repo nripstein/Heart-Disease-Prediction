@@ -157,8 +157,8 @@ I found that there was a statistically significant difference (p<0.05) for each 
 The Chi-Squared test is a statistical hypothesis test that is used to determine whether there is a significant association between two categorical variables. It compares the observed frequencies in each category of a contingency table with the frequencies that would be expected if the variables were independent. In the context of feature selection for my machine learning models, I used the Chi-Squared test  to identify the categorical features that are most significantly associated with the target variable.
 
    <H4>Chi-Squared Test Results</H4>
-Like the continuous features, I found a statistically significant difference in heart disease (p<0.05) according to each categorical feature.  This led me to decide to keep all categorical features as part of my classification models.
-
+Like the continuous features, I found a statistically significant difference in heart disease (p<0.05) according to each categorical feature.  This led me to decide to keep all categorical features as part of my classification models.   
+<img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/e82a5f1a-96b3-4f26-80d5-fe57dad0d480" alt="chi_sq_results" width="50%">
 </details>
 
 
