@@ -28,6 +28,7 @@
 - [Usage](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#usage)
 - [Dataset](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#dataset)
 - [Exploratory Data Analysis](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#exploratory-data-analysis)
+- [Data Imputation Techniques for Null Value Replacement](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#data-imputation-techniques-for-null-value-replacement)
 - [Feature Selection With Inferential Statistics](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#feature-selection-with-inferential-statistics)
 - [Classification Models](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#classification-models)
 
@@ -108,7 +109,7 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
     <summary><h2>Exploratory Data Analysis</h2></summary>
     <p>Questions I Asked About the Data:</p>
     <ol>
-        <details open>
+        <details>
             <summary>How many positive and negative examples are there of the target variable?</summary>
 	     <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/697609a2-8ef0-4ea5-bf7a-a263102b9ed8" alt="target_freq" width="75%">
 	     <p>The dataset is close to balanced, so there is no need to impliment techniques to improve classifaction of infrequent categories like Synthetic Minority Over-sampling.</p>
@@ -123,21 +124,25 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
         <details open>
             <summary>How do continuous variables change in conjunction with the target variable?</summary>
             <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/eaf1a71b-2a5c-4345-824f-c433a36cadad" alt="continuous_target" width="75%">
-	    <p>A visual inspection indicates that age, maximum heart rate and oldpeak are most different in Heart Disease positive and negative.  <a href="https://github.com/nripstein/Heart-Disease-Prediction/#anova">This was later confirmed rigorously with an ANOVA</a></p>
+	    <p>A visual inspection indicates that age, maximum heart rate and oldpeak are most different in Heart Disease positive vs negative.  <a href="https://github.com/nripstein/Heart-Disease-Prediction/#anova">This was later statistically confirmed with an ANOVA</a></p>
         </details>
-        <details open>
+        <details>
             <summary>How many examples are there of each categorical variable?</summary>
 	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/7e0ee7a7-1514-476c-983d-14ca90e77e42" alt="continuous_target" width="75%">
             <p>Answer goes here...</p>
         </details>
-        <details open>
+        <details>
             <summary>How does each categorical variable change in conjunction with the target variable?</summary>
-            <p>Answer goes here...</p>
             <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="75%">
+	    <p>Answer goes here...</p>
         </details>
     </ol>
 </details>
 
+<details open>
+    <summary><h2>Data Imputation Techniques for Null Value Replacement</h2></summary>
+    	<p>THIS SECTION ISN'T DONE YET, had decent success with mean median mode. Having lots of difficulty with regression</p>
+</details>
 
 <details open>
     <summary><h2>Feature Selection With Inferential Statistics</h2></summary>
