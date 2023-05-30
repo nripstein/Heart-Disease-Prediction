@@ -185,6 +185,7 @@ Like the continuous features, I found a statistically significant difference in 
 <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/b7fe2b5f-417b-4d68-8122-daf4dd036524" alt="logistic regression confusion" width="50%">
 
 - sensitivity and specificity and Bayesian PDFs
+[Comprehensive report detailing the generation of these PDFs and Credible Intervals](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/Bayesian%20Approach%20to%20Assessing%20Uncertainty%20in%20Sensitivity%20and%20Specificity%20Metrics.pdf)
 - other metrics
 	
 </details>
