@@ -21,7 +21,7 @@
 
 [Explore the Jupyter Notebook](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/heart%20failure%20prediction%20notebook.ipynb)
 
-[Try the Classification Website](https://nripstein-heart-disease-pre-heart-disease-prediction-app-wsdsib.streamlit.app/)
+[Try the Classification Website](https://heart-disease-prediction-ripstein.streamlit.app/)
 
 # Table of Contents
 - [Objective](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#objective)
