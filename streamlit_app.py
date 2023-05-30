@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 
-# streamlit run heart_disease_prediction_app.py
+# streamlit run streamlit_app.py
 
 # Create the Streamlit app
 st.title("Heart Disease Prediction")
