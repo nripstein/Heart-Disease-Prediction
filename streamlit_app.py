@@ -71,7 +71,7 @@ sex, chest_pain, fasting_bs, resting_ECG, ExerciseAngina, ST_Slope = convert_cat
 
 def preprocess_new_data():
     # Load in whole dataset
-    df = pd.read_csv(os.path.join("data", "heart_failure_data.csv"))
+    df = pd.read_csv(os.path.join("data", "heart_disease_data.csv"))  # in data directory
     df = df.drop(["HeartDisease"], axis=1)
 
     # Create new row with the user's data
