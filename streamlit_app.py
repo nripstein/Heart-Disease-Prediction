@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 import tensorflow as tf
 import os
+import time
 
 
 # streamlit run streamlit_app.py
@@ -118,11 +119,8 @@ def preprocess_new_data():
 to_predict = preprocess_new_data()
 
 # Load the trained models
-logistic_regressor1 = joblib.load("saved models/logistic_regressor1.pkl")
 random_forest_classifier = joblib.load("saved models/random_forest_classifier.pkl")
 dl_classifier = tf.keras.models.load_model(os.path.join(os.getcwd(), "saved models/deep_learning_classifier"))
-
-# ["Neural Network (Best Overall)", "Random Forest Classifier (Highest Specificity)"]
 
 
 # Define a function to handle the prediction
@@ -130,7 +128,6 @@ def predict():
     # Perform any necessary preprocessing steps on the input data
 
     # Make the prediction
-    # prediction = logistic_regressor1.predict(to_predict)
     if selected_model == "Random Forest Classifier (Highest Specificity)":
         prediction = random_forest_classifier.predict(to_predict)
         probability_positive = random_forest_classifier.predict_proba(to_predict)[0][1]  # shouldn't display these numbers becuase model was evaluated assuming binary classification, not based on probabilities
@@ -150,4 +147,17 @@ def predict():
 # Create a button to trigger the prediction
 predict_button = st.button("Predict")
 if predict_button:
+    # Initialize the progress bar
+    progress_bar = st.progress(0)
+
+    for i in range(101):
+        # Update the progress bar
+        progress_bar.progress(i)
+        time.sleep(0.002)
+
+    # Run the prediction function
     predict()
+
+
+medical_advice_warning = "WARNING: Please note that this project is intended as an illustrative example of the potential application of machine learning in assisting medical professionals with heart disease diagnosis. The information and results presented here do not constitute medical advice in any form."
+st.subheader(medical_advice_warning)
