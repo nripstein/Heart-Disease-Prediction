@@ -3,6 +3,8 @@ import pandas as pd
 import joblib
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
+import tensorflow as tf
+import os
 
 
 # streamlit run streamlit_app.py
@@ -23,11 +25,9 @@ resting_ECG = st.selectbox("Resting Electrocardiogram Results", ["Normal", "ST-T
 ExerciseAngina = st.selectbox("Does the Patient Experience Exercise-Induced Angina?", ["No", "Yes"])
 ST_Slope = st.selectbox("ST Segment Slope during Exercise", ["Sloping Upwards", "Flat", "Sloping Downwards"])
 # Pick model
-model_options = ["Logistic Regression (default)",
-                 "Gaussian Naive Bayes",
-                 "Random Forest Classifier",
-                 "Neural Network"]
-selected_model = st.selectbox("Classification Model", model_options) #  (THIS SELECTOR DOES NOTHING CURRENTLY)
+model_options = ["Neural Network (Best Overall)",
+                 "Random Forest Classifier (Highest Specificity)"]
+selected_model = st.selectbox("Classification Model", model_options) #  (THIS SELECTOR DOES NOTHING CURRENTLY, STILL JUST USES LOGISTIC REGRESSION)
 
 
 def convert_categorical_variables(sex_, chest_pain_, fasting_bs_, resting_ECG_, ExerciseAngina_, ST_Slope_):
@@ -63,6 +63,8 @@ def convert_categorical_variables(sex_, chest_pain_, fasting_bs_, resting_ECG_, 
 
 sex, chest_pain, fasting_bs, resting_ECG, ExerciseAngina, ST_Slope = convert_categorical_variables(sex, chest_pain, fasting_bs, resting_ECG, ExerciseAngina, ST_Slope)
 
+
+# add in row
 new_row = pd.Series({
     "Age": age,
     "Sex": sex,
@@ -77,43 +79,50 @@ new_row = pd.Series({
     "ST_Slope": ST_Slope
 })
 
-# Load in whole dataset
-df = pd.read_csv("heart_failure_data.csv")
-df = df.drop(["HeartDisease"], axis=1)
+def preprocess_new_data():
+    # Load in whole dataset
+    df = pd.read_csv("heart_failure_data.csv")
+    df = df.drop(["HeartDisease"], axis=1)
 
-df.loc[len(df)] = new_row  # add new row that user specified
+    df.loc[len(df)] = new_row  # add new row that user specified
 
-# Augment features the same way I did in training
-numerical_features = df.select_dtypes(include=[np.number])
-numerical_features = numerical_features.drop(["FastingBS"], axis=1)
-continuous_feature_names = numerical_features.columns.tolist()
+    # Augment features the same way I did in training
+    numerical_features = df.select_dtypes(include=[np.number])
+    numerical_features = numerical_features.drop(["FastingBS"], axis=1)
+    continuous_feature_names = numerical_features.columns.tolist()
 
-categorical_features = df.select_dtypes(include=[object])
-categorical_feature_names = categorical_features.columns.to_list() + ["FastingBS"]
+    categorical_features = df.select_dtypes(include=[object])
+    categorical_feature_names = categorical_features.columns.to_list() + ["FastingBS"]
+
+    preprocessed_df = df.copy(deep=True)  # make a copy of the original data which we will modify
+
+    # Initialize the scalers
+    min_max_scaler = MinMaxScaler()
+    standard_scaler = StandardScaler()  # not clear this was required for 'Age', 'RestingBP', or, 'MaxHR' because those were already looking pretty close to Gaussian. Further normalization here is unlikely to hurt, however. A further investigation into normality with QQ-plots and the shapiro wilk test could be a future direction and dictate whether those features get StandardScaler applied to them
+
+    # Apply both scalers to each continuous variable
+    for feature in continuous_feature_names:
+        min_max_scaled_data = min_max_scaler.fit_transform(preprocessed_df[[feature]])  # Perform MinMax scaling
+        # Perform Standard scaling on the MinMax scaled data
+        min_max_standard_scaled_data = standard_scaler.fit_transform(min_max_scaled_data)
+        # Update the original DataFrame with the scaled data
+        preprocessed_df[feature] = min_max_standard_scaled_data.flatten()
+
+    # one hot encoding of categorical variables
+    preprocessed_df = pd.get_dummies(preprocessed_df, columns=categorical_feature_names, dtype=int)
+
+    # return final row to predict
+    return preprocessed_df.tail(1)  # get last row, keep as dataframe structure
 
 
-df2 = df.copy(deep=True)  # make a copy of the original data which we will modify
+to_predict = preprocess_new_data()
 
-# Initialize the scalers
-min_max_scaler = MinMaxScaler()
-standard_scaler = StandardScaler()  # not clear this was required for 'Age', 'RestingBP', or, 'MaxHR' because those were already looking pretty close to Gaussian. Further normalization here is unlikely to hurt, however. A further investigation into normality with QQ-plots and the shapiro wilk test could be a future direction and dictate whether those features get StandardScaler applied to them
-
-# Apply both scalers to each continuous variable
-for feature in continuous_feature_names:
-    min_max_scaled_data = min_max_scaler.fit_transform(df2[[feature]])  # Perform MinMax scaling
-    # Perform Standard scaling on the MinMax scaled data
-    min_max_standard_scaled_data = standard_scaler.fit_transform(min_max_scaled_data)
-    # Update the original DataFrame with the scaled data
-    df2[feature] = min_max_standard_scaled_data.flatten()
-
-# one hot encoding of categorical variables
-df2 = pd.get_dummies(df2, columns=categorical_feature_names, dtype=int)
-
-# extract final row to predict
-to_predict = df2.tail(1)  # get last row, keep as dataframe structure
-
-# Load the trained model
+# Load the trained models
 logistic_regressor1 = joblib.load("saved models/logistic_regressor1.pkl")
+random_forest_classifier = joblib.load("saved models/random_forest_classifier.pkl")
+dl_classifier = tf.keras.models.load_model(os.path.join(os.getcwd(), "saved models/deep_learning_classifier"))
+
+# ["Neural Network (Best Overall)", "Random Forest Classifier (Highest Specificity)"]
 
 
 # Define a function to handle the prediction
@@ -121,7 +130,12 @@ def predict():
     # Perform any necessary preprocessing steps on the input data
 
     # Make the prediction
-    prediction = logistic_regressor1.predict(to_predict)
+    # prediction = logistic_regressor1.predict(to_predict)
+    if selected_model == "Random Forest Classifier (Highest Specificity)":
+        prediction = random_forest_classifier.predict(to_predict)
+    else:
+        tf_predictions = dl_classifier.predict(to_predict)
+        prediction = np.round(tf_predictions).astype(int)[0]
 
     # Display the prediction result
     if prediction[0] == 1:
