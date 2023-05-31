@@ -10,7 +10,7 @@ import time
 
 # streamlit run streamlit_app.py
 
-# Create the Streamlit app
+# Create the Streamlit app title
 st.title("Heart Disease Prediction")
 
 # Create input fields for each feature
@@ -25,13 +25,16 @@ fasting_bs = st.selectbox("Blood Sugar After Fast (mg/dl)", ["120 or Under", "Ov
 resting_ECG = st.selectbox("Resting Electrocardiogram Results", ["Normal", "ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)", "Showing probable or definite left ventricular hypertrophy by Estes' criteria"])
 ExerciseAngina = st.selectbox("Does the Patient Experience Exercise-Induced Angina?", ["No", "Yes"])
 ST_Slope = st.selectbox("ST Segment Slope during Exercise", ["Sloping Upwards", "Flat", "Sloping Downwards"])
-# Pick model
-model_options = ["Neural Network (Best Overall)",
+# Select model
+model_options = ["Neural Network (Highest Accuracy and Sensitivity)",
                  "Random Forest Classifier (Highest Specificity)"]
-selected_model = st.selectbox("Classification Model", model_options) #  (THIS SELECTOR DOES NOTHING CURRENTLY, STILL JUST USES LOGISTIC REGRESSION)
+selected_model = st.selectbox("Classification Model", model_options)
 
 
 def convert_categorical_variables(sex_, chest_pain_, fasting_bs_, resting_ECG_, ExerciseAngina_, ST_Slope_):
+    """
+    Converts categorical variables from their user-friendly names to the names that match the dataset
+    """
     sex_conversion = {
         "Male": "M",
         "Female": "F"
@@ -62,30 +65,31 @@ def convert_categorical_variables(sex_, chest_pain_, fasting_bs_, resting_ECG_, 
     }
     return sex_conversion[sex_], chest_pain_conversion[chest_pain_], fasting_bs_conversion[fasting_bs_], resting_ECG_conversion[resting_ECG_], ExerciseAngina_conversion[ExerciseAngina_], ST_Slope_conversion[ST_Slope_]
 
+
 sex, chest_pain, fasting_bs, resting_ECG, ExerciseAngina, ST_Slope = convert_categorical_variables(sex, chest_pain, fasting_bs, resting_ECG, ExerciseAngina, ST_Slope)
 
 
-# add in row
-new_row = pd.Series({
-    "Age": age,
-    "Sex": sex,
-    "ChestPainType": chest_pain,
-    "RestingBP": resting_BP,
-    "Cholesterol": cholesterol,
-    "FastingBS": fasting_bs,
-    "RestingECG": resting_ECG,
-    "MaxHR": MaxHR,
-    "ExerciseAngina": ExerciseAngina,
-    "Oldpeak": oldpeak,
-    "ST_Slope": ST_Slope
-})
-
 def preprocess_new_data():
     # Load in whole dataset
-    df = pd.read_csv("heart_failure_data.csv")
+    df = pd.read_csv(os.path.join("data", "heart_failure_data.csv"))
     df = df.drop(["HeartDisease"], axis=1)
 
-    df.loc[len(df)] = new_row  # add new row that user specified
+    # Create new row with the user's data
+    new_row = pd.Series({
+        "Age": age,
+        "Sex": sex,
+        "ChestPainType": chest_pain,
+        "RestingBP": resting_BP,
+        "Cholesterol": cholesterol,
+        "FastingBS": fasting_bs,
+        "RestingECG": resting_ECG,
+        "MaxHR": MaxHR,
+        "ExerciseAngina": ExerciseAngina,
+        "Oldpeak": oldpeak,
+        "ST_Slope": ST_Slope
+    })
+
+    df.loc[len(df)] = new_row  # add new row to full dataset
 
     # Augment features the same way I did in training
     numerical_features = df.select_dtypes(include=[np.number])
@@ -125,8 +129,6 @@ dl_classifier = tf.keras.models.load_model(os.path.join(os.getcwd(), "saved mode
 
 # Define a function to handle the prediction
 def predict():
-    # Perform any necessary preprocessing steps on the input data
-
     # Make the prediction
     if selected_model == "Random Forest Classifier (Highest Specificity)":
         prediction = random_forest_classifier.predict(to_predict)
@@ -141,7 +143,7 @@ def predict():
         st.success(f"It is predicted that the patient has heart disease.")
     else:
         st.success(f"It is predicted that the patient does not have heart disease.")
-    st.success(f"(Chance of being heart disease positive: {100*probability_positive:.2f}%)")
+    st.success(f"Chance of being heart disease positive: {100*probability_positive:.2f}%")
 
 
 # Create a button to trigger the prediction
@@ -158,6 +160,6 @@ if predict_button:
     # Run the prediction function
     predict()
 
-
+# Add disclaimer
 medical_advice_warning = "WARNING: Please note that this project is intended as an illustrative example of the potential application of machine learning in assisting medical professionals with heart disease diagnosis. The information and results presented here do not constitute medical advice in any form."
 st.subheader(medical_advice_warning)
