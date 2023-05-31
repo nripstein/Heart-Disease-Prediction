@@ -13,14 +13,14 @@ import os
 st.title("Heart Disease Prediction")
 
 # Create input fields for each feature
-age = st.number_input("Age", min_value=18, max_value=150, step=1)
-resting_BP = st.number_input("Resting Systolic Blood Pressure (mm Hg)", step=1)
-cholesterol = st.number_input("Serum Cholesterol (mm/dl)", step=1)
-MaxHR = st.number_input("Maximum Heart Rate Achieved in Exhaustion Test", step=1)
-oldpeak = st.number_input("ST Depression Induced by Exercise Relative to Rest (mm)")
-sex = st.selectbox("Sex", ["Male", "Female"])
+age = st.number_input("Age", min_value=18, max_value=150, step=1, value=18)
+resting_BP = st.number_input("Resting Systolic Blood Pressure (mm Hg)", step=1, value=120)
+cholesterol = st.number_input("Serum Cholesterol (mm/dl)", step=1, min_value=80, value=200)
+MaxHR = st.number_input("Maximum Heart Rate Achieved in Exhaustion Test", step=1, min_value=50, value=140)
+oldpeak = st.number_input("ST Depression Induced by Exercise Relative to Rest (mm)", value=-0.1)
+sex = st.selectbox("Sex", ["Female", "Male"])
 chest_pain = st.selectbox("Does the Patient Experience Chest Pain?", ["No Chest Pain", "Typical Angina Pain", "Atypical Angina Pain", "Non-Anginal Pain"])
-fasting_bs = st.selectbox("Blood Sugar After Fast (mg/dl)", ["Over 120", "120 or Under"])
+fasting_bs = st.selectbox("Blood Sugar After Fast (mg/dl)", ["120 or Under", "Over 120"])
 resting_ECG = st.selectbox("Resting Electrocardiogram Results", ["Normal", "ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)", "Showing probable or definite left ventricular hypertrophy by Estes' criteria"])
 ExerciseAngina = st.selectbox("Does the Patient Experience Exercise-Induced Angina?", ["No", "Yes"])
 ST_Slope = st.selectbox("ST Segment Slope during Exercise", ["Sloping Upwards", "Flat", "Sloping Downwards"])
@@ -133,15 +133,18 @@ def predict():
     # prediction = logistic_regressor1.predict(to_predict)
     if selected_model == "Random Forest Classifier (Highest Specificity)":
         prediction = random_forest_classifier.predict(to_predict)
+        probability_positive = random_forest_classifier.predict_proba(to_predict)[0][1]  # shouldn't display these numbers becuase model was evaluated assuming binary classification, not based on probabilities
     else:
         tf_predictions = dl_classifier.predict(to_predict)
         prediction = np.round(tf_predictions).astype(int)[0]
+        probability_positive = tf_predictions[0][0]
 
     # Display the prediction result
     if prediction[0] == 1:
-        st.success("It is predicted that the patient has heart disease.")
+        st.success(f"It is predicted that the patient has heart disease.")
     else:
-        st.success("It is predicted that the patient does not have heart disease.")
+        st.success(f"It is predicted that the patient does not have heart disease.")
+    st.success(f"(Chance of being heart disease positive: {100*probability_positive:.2f}%)")
 
 
 # Create a button to trigger the prediction
