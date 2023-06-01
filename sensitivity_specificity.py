@@ -369,16 +369,22 @@ def pdf_generator(correctly_labeled: int, mislabeled: int, xlab: str, title: str
     return mode, (min_95, max_95)
 
 
-def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int],
-                                 hypotheses: int = 100, save: bool = True,
-                                 title: str = "Sensitivity and Specificity PDFs") \
-        -> tuple[tuple[float, tuple[float, float]], tuple[float, tuple[float, float]]]:
+def sensitivity_specificity_pdfs(confusion_matrix, hypotheses=100, save=True, title="Sensitivity and Specificity PDFs"):
     """
-    makes pdf for sensitivity and specificity next to each other
-    :param confusion_matrix: confusion matrix containing chart with correct and incorrect classifications. needs to be 2x2 of ints
-    :param hypotheses: number of hypothesis bins
-    :param save: if ture, saves as png
-    :return: specificity mode, (min value in specificity 95% confidence interval, max value in specificity 95% confidence interval), same for sensitivity
+    Makes PDFs for sensitivity and specificity next to each other.
+
+    Args:
+        confusion_matrix (np.ndarray): Confusion matrix containing chart with correct and incorrect classifications.
+                                       Needs to be a 2x2 ndarray of ints.
+        hypotheses (int, optional): Number of hypothesis bins. Defaults to 100.
+        save (bool, optional): If True, saves the plot as a PNG file. Defaults to True.
+        title (str, optional): Title for the plot. Defaults to "Sensitivity and Specificity PDFs".
+
+    Returns:
+        Tuple containing the specificity mode and its 95% confidence interval,
+        and the sensitivity mode and its 95% confidence interval.
+        The modes are floats and the confidence intervals are tuples of floats.
+        :rtype tuple[tuple[float, tuple[float, float]], tuple[float, tuple[float, float]]]
     """
 
     fig, ax = plt.subplots(1, 2, figsize=(8, 5))
@@ -400,6 +406,11 @@ def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int],
     ax[0].set_xticks(new_tick_positions)
     ax[0].set_xticklabels(new_tick_labels)
 
+    # Add vertical dotted red line at 95% confidence interval for sensitivity
+    sensitivity_min_95, sensitivity_max_95 = confidence(sensitivity_df)
+    ax[0].axvline(sensitivity_min_95, color="red", linestyle="dotted", label="95% Credible Interval Bound")
+    ax[0].axvline(sensitivity_max_95, color="red", linestyle="dotted")
+
     # specificity
     specificity_df, specificity_obj = binomial_df(hypotheses, TP + FN, TP)
     ax[1].bar(range(len(specificity_df["posterior"])), specificity_df["posterior"], edgecolor="dodgerblue")
@@ -410,6 +421,14 @@ def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int],
     ax[1].set_xticks(new_tick_positions)
     ax[1].set_xticklabels(new_tick_labels)
 
+    # Add vertical dotted red line at 95% confidence interval for specificity
+    specificity_min_95, specificity_max_95 = confidence(specificity_df)
+    ax[1].axvline(specificity_min_95, color="red", linestyle="dotted", label="95% Credible Interval Bound")
+    ax[1].axvline(specificity_max_95, color="red", linestyle="dotted")
+
+    # Add legend
+    ax[0].legend(loc="upper left")
+
     plt.tight_layout()
     fig.suptitle(title)
     plt.subplots_adjust(top=0.9)  # adjust the bottom margin
@@ -417,11 +436,10 @@ def sensitivity_specificity_pdfs(confusion_matrix: np.ndarray[(2, 2), int],
         plt.savefig(os.path.join("visualizations", f"{title}_PDF.png"), dpi=300)
     plt.show()
 
-    sensitivity_min_95, sensitivity_max_95 = confidence(sensitivity_df)
     sensitivity_mode: float = sensitivity_df.iloc[sensitivity_obj.mode_index()]["hypothesis"]
-
-    specificity_min_95, specificity_max_95 = confidence(specificity_df)
     specificity_mode: float = specificity_df.iloc[specificity_obj.mode_index()]["hypothesis"]
 
     return (sensitivity_mode, (sensitivity_min_95, sensitivity_max_95)), (specificity_mode, (specificity_min_95, specificity_max_95))
+
+
 
