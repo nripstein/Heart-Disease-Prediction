@@ -1,5 +1,6 @@
 
 
+
 <div align="center">
   <h1>Heart Disease Prediction</h1>
 </div>
@@ -133,6 +134,7 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
         </details>
         <details>
             <summary>How does each categorical variable change in conjunction with the target variable?</summary>
+            <br>
             <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="75%">
 	    <p>Answer goes here...</p>
         </details>
@@ -141,7 +143,10 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
 
 <details open>
     <summary><h2>Data Imputation Techniques for Null Value Replacement</h2></summary>
-    	<p>THIS SECTION ISN'T DONE YET, had decent success with mean median mode. Having lots of difficulty with regression</p>
+    	<p>As I discovered during Exploratory Data Analysis, the dataset has 172 samples with null values for Cholesterol (which were initially set to 0). I explored various data imputation techniques in an attempt to extract meaningful training data from such samples.</p>
+	<p>Initially, simple imputation strategies were deployed, namely: mean, median, and mode imputation. A noteworthy improvement in model performance was observed compared to models trained on the original dataset where null values were replaced by a default value of zero. Among these initial imputation techniques, mean imputation was found to deliver the best results for most machine learning models.</p>
+	<p>Building upon these initial findings, I applied a sophisticated imputation method: applying regression analysis to estimate the missing values. The regression techniques applied included Linear Regression, Ridge Regression, Lasso Regression, Random Forest Regression, Support Vector Regression, and Regression using Deep Learning. Each of these regression-based imputation techniques displayed a similar level of performance in terms of RMSE and MAE.</p>
+	<p>The performance of the regression models was found to be not as satisfactory as initially hypothesized, often falling short of the results obtained with mean imputation.  Despite this, it was observed that for Random Forest Classifiaction models, the regression-based methods exhibited strong results in terms of precision and specificity metrics. Particularly, Linear Regression and Ridge Regression-based imputation strategies performed well in these areas.</p>
 </details>
 
 <details open>
@@ -169,19 +174,30 @@ Like the continuous features, I found a statistically significant difference in 
 
 <details open>
     <summary><h2>Classification Models</h2></summary>
+    <p>A key component of this project involved the implementation and performance evaluation of a variety of classification models. The chosen models were tested on the datasets prepared as described in the "Data Imputation Techniques for Null Value Replacement" section. All the datasets utilized in this phase had continuous features standardized and normalized to ensure a uniform scale and improved model performance. </p>
     <ol>
         <li>Logistic Regression</li>
-        <li>Random Forest</li>
-        <li>Support Vector Machine</li>
-        <li>Gaussian Naive Bayes</li>
-        <li>(Bernoulli Naive Bayes if I include it)</li>
-        <li>Neural Network</li>
+        <li>Random Forest Classifier</li>
+        <li>Support Vector Machine Classifier</li>
+        <li>Gaussian Naive Bayes Classifier</li>
+        <li>Bernoulli Naive Bayes Classifier</li>
+        <li>XGBoost Classifier</li>
+        <li>Neural Network (of various architectures)</li>
     </ol>
+    <p>For the neural network models, an expansive exploration of architectural variations was conducted. These architectures ranged from those with a single hidden layer to those with three hidden layers, with the number of neurons per layer varying from 32 to 128.</p>
+    <p>Each of these models was trained on 80% of the data, and tested on 20%.  Accuracy, Precision, Recall, F1-Score and Specificity metrics were tracked.</p>
 </details>
 
 
 <details open>
-  <summary><H2>Evaluation and Results</H2></summary>
+  <summary><H2>Results and Model Performance Evaluation</H2></summary>
+  <p>A thorough analysis of over 80 models was conducted in this project, with the evaluation criteria based on several metrics including accuracy, precision, recall (sensitivity), F1-score, and specificity. Out of all the models evaluated, two demonstrated superior performance in their respective contexts.</p>
+  <ol>
+  <li><b>Deep Learning Model:</li>
+  <p>The top performing model by <b>Accuracy, Recall, </b>and<b> F1-Score</b> was a deep learning model trained on data where missing cholesterol values were imputed using the mean of the available values.  Performance metrics can be found in the below figures and in Table 1. ADD FIGURES HERE</p>
+<p align="center">  <table>  <caption>Table 1: Deep Learning Model Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>91.30%</td> <td>91.96%</td> <td>93.64</td> <td>92.79</td> <td>87.84%</td> </tr> </tbody> </table> </p> 
+<p>To provide a comprehensive understanding of this model's performance, a Probability Distribution Function (PDF) was constructed to quantify the uncertainty in sensitivity/recall and specificity. The resulting 95% credible intervals were as follows: ADD THEM</p>
+  </ol>
 <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/b7fe2b5f-417b-4d68-8122-daf4dd036524" alt="logistic regression confusion" width="50%">
 
 - sensitivity and specificity and Bayesian PDFs
