@@ -384,10 +384,12 @@ def sensitivity_specificity_pdfs(confusion_matrix, hypotheses=100, save=True, ti
         Tuple containing the specificity mode and its 95% confidence interval,
         and the sensitivity mode and its 95% confidence interval.
         The modes are floats and the confidence intervals are tuples of floats.
+
+        (sensitivity_mode, (sensitivity_min_95, sensitivity_max_95)), (specificity_mode, (specificity_min_95, specificity_max_95))
         :rtype tuple[tuple[float, tuple[float, float]], tuple[float, tuple[float, float]]]
     """
 
-    fig, ax = plt.subplots(1, 2, figsize=(8, 5))
+    fig, ax = plt.subplots(1, 2, figsize=(8, 3))
     new_tick_labels = np.linspace(0, 100, 6, dtype=int)
 
     TN, FP = confusion_matrix[0]
