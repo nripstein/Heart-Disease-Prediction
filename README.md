@@ -1,6 +1,7 @@
 
 
 
+
 <div align="center">
   <h1>Heart Disease Prediction</h1>
 </div>
@@ -184,7 +185,7 @@ Like the continuous features, I found a statistically significant difference in 
         <li>XGBoost Classifier</li>
         <li>Neural Network (of various architectures)</li>
     </ol>
-    <p>For the neural network models, an expansive exploration of architectural variations was conducted. These architectures ranged from those with a single hidden layer to those with three hidden layers, with the number of neurons per layer varying from 32 to 128.</p>
+    <p>For the neural network models, an expansive exploration of hyperparameter variations was conducted using cross-validation. These architectures ranged from those with a single hidden layer to those with three hidden layers, with the number of neurons per layer varying from 32 to 128.</p>
     <p>Each of these models was trained on 80% of the data, and tested on 20%.  Accuracy, Precision, Recall, F1-Score and Specificity metrics were tracked.</p>
 </details>
 
@@ -194,14 +195,76 @@ Like the continuous features, I found a statistically significant difference in 
   <p>A thorough analysis of over 80 models was conducted in this project, with the evaluation criteria based on several metrics including accuracy, precision, recall (sensitivity), F1-score, and specificity. Out of all the models evaluated, two demonstrated superior performance in their respective contexts.</p>
   <ol>
   <li><b>Deep Learning Model:</li>
-  <p>The top performing model by <b>Accuracy, Recall, </b>and<b> F1-Score</b> was a deep learning model trained on data where missing cholesterol values were imputed using the mean of the available values.  Performance metrics can be found in the below figures and in Table 1. ADD FIGURES HERE</p>
-<p align="center">  <table>  <caption>Table 1: Deep Learning Model Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>91.30%</td> <td>91.96%</td> <td>93.64</td> <td>92.79</td> <td>87.84%</td> </tr> </tbody> </table> </p> 
-<p>To provide a comprehensive understanding of this model's performance, a Probability Distribution Function (PDF) was constructed to quantify the uncertainty in sensitivity/recall and specificity. The resulting 95% credible intervals were as follows: ADD THEM</p>
-  </ol>
-<img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/b7fe2b5f-417b-4d68-8122-daf4dd036524" alt="logistic regression confusion" width="50%">
+  <p>The top performing model by <b>Accuracy, Recall, </b>and<b> F1-Score</b> was a deep learning model trained on data where missing cholesterol values were imputed using the mean of the available values.  Performance metrics can be found in the below figures and in Tables 1 and 2.</p>
+<p align="center">
+        <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/801074f9-c7d8-4b4a-ab8e-ac19945553f1" alt="Deep Learning Classifier Confusion Matrix" width="65%">
+        <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/ff2014c7-9a2f-40be-a294-4183c662abbf" alt="Deep Learning Classifier Sensitivity and Specificity PDFs" width="65%">
+      </p>
 
-- sensitivity and specificity and Bayesian PDFs
-[Comprehensive report detailing the generation of these PDFs and Credible Intervals](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/Bayesian%20Approach%20to%20Assessing%20Uncertainty%20in%20Sensitivity%20and%20Specificity%20Metrics.pdf)
-- other metrics
-	
+
+<p align="center">  <table>  <caption>Table 1: Deep Learning Model Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>91.30%</td> <td>91.96%</td> <td>93.64</td> <td>92.79</td> <td>87.84%</td> </tr> </tbody> </table> </p> 
+  <table>
+    <caption>Table 2: Deep Learning Model Sensitivity and Specificity CI</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th><strong>95% CI Minimum</strong></th>
+        <th><strong>95% CI Maximum</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sensitivity/Recall</strong></td>
+        <td>88.5%</td>
+        <td>96.5%</td>
+      </tr>
+      <tr>
+        <td><strong>Specificity</strong></td>
+        <td>80.5%</td>
+        <td>93.5%</td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+<li> <b>Random Forest Classifier:</b>
+<p>The top performing model by <b>Precision</b> and <b>Specificity</b> was a Random Forest Classifier trained on data with missing cholesterol values imputed using Ridge Regression. Performance metrics can be found in the below figures and in Table 1. ADD FIGURES HERE</p>
+		 
+<p align="center">
+        <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/17778c8c-7dd9-4997-8276-f03f90d2a3a1" alt="Random Forest Classifier Confusion Matrix" width="65%">
+        <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/9fd600b4-2ee4-4bf0-8d95-9906ab359b85" alt="Random Forest Classifier Sensitivity and Specificity PDFs" width="65%">
+      </p>
+
+
+<p align="center">  <table>  <caption>Table 3: Random Forest Classifier Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>89.67%</td> <td>94.34%</td> <td>88.50</td> <td>91.32</td> <td>91.55%</td> </tr> </tbody> </table> 
+  <table>
+    <caption>Table 4: Random Forest Classifier Sensitivity and Specificity CI</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th><strong>95% CI Minimum</strong></th>
+        <th><strong>95% CI Maximum</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sensitivity/Recall</strong></td>
+        <td>82.5%</td>
+        <td>92.5%</td>
+      </tr>
+      <tr>
+        <td><strong>Specificity</strong></td>
+        <td>84.5%</td>
+        <td>96.5%</td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+<p align="center">
+
+
+</li>
+  </ol>
+
+[Comprehensive report detailing the generation of Sensitivity and Specificity PDFs and Credible Intervals](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/Bayesian%20Approach%20to%20Assessing%20Uncertainty%20in%20Sensitivity%20and%20Specificity%20Metrics.pdf)
+
 </details>
