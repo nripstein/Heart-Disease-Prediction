@@ -194,9 +194,8 @@ Like the continuous features, I found a statistically significant difference in 
   <summary><H2>Results and Model Performance Evaluation</H2></summary>
   <p>A thorough analysis of over 80 models was conducted in this project, with the evaluation criteria based on several metrics including accuracy, precision, recall (sensitivity), F1-score, and specificity. Out of all the models evaluated, two demonstrated superior performance in their respective contexts.</p>
   <ol>
-  <li><b>Deep Learning Model:</li>
-  <p>The top performing model by <b>Accuracy, Recall, </b>and<b> F1-Score</b> was a deep learning model trained on data where missing cholesterol values were imputed using the mean of the available values.  Performance metrics can be found in the below figures and in Tables 1 and 2.</p>
-<p align="center">
+  <li><b>Deep Learning Model:</b></li>
+  <p>The top performing model by <b>Accuracy, Recall, </b>and<b> F1-Score</b> was a deep learning model trained on data where missing cholesterol values were imputed using the mean of the available values.  Performance metrics can be found in the below figures and in Tables 1 and 2.  To accompany the single-number metrics, PDFs were also constructed to quantify the uncertainty in this model's sensitivity/recall and specificity.  I wrote a comprehensive report detailing the generation of Sensitivity and Specificity PDFs and Credible Intervals which can be found in the repository, <a href="https://github.com/nripstein/Heart-Disease-Prediction/blob/main/Bayesian%20Approach%20to%20Assessing%20Uncertainty%20in%20Sensitivity%20and%20Specificity%20Metrics.pdf">or by clicking this link</a>
         <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/801074f9-c7d8-4b4a-ab8e-ac19945553f1" alt="Deep Learning Classifier Confusion Matrix" width="65%">
         <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/ff2014c7-9a2f-40be-a294-4183c662abbf" alt="Deep Learning Classifier Sensitivity and Specificity PDFs" width="65%">
       </p>
@@ -226,8 +225,8 @@ Like the continuous features, I found a statistically significant difference in 
     </tbody>
   </table>
 </p>
-<li> <b>Random Forest Classifier:</b>
-<p>The top performing model by <b>Precision</b> and <b>Specificity</b> was a Random Forest Classifier trained on data with missing cholesterol values imputed using Ridge Regression. Performance metrics can be found in the below figures and in Table 1. ADD FIGURES HERE</p>
+		 <li> <b>Random Forest Classifier:</b></li>
+<p>The top performing model by <b>Precision</b> and <b>Specificity</b> was a Random Forest Classifier trained on data with missing cholesterol values imputed using Ridge Regression. Performance metrics can be found in the below figures and in Tables 2 and 3.</p>
 		 
 <p align="center">
         <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/17778c8c-7dd9-4997-8276-f03f90d2a3a1" alt="Random Forest Classifier Confusion Matrix" width="65%">
@@ -264,7 +263,5 @@ Like the continuous features, I found a statistically significant difference in 
 
 </li>
   </ol>
-
-[Comprehensive report detailing the generation of Sensitivity and Specificity PDFs and Credible Intervals](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/Bayesian%20Approach%20to%20Assessing%20Uncertainty%20in%20Sensitivity%20and%20Specificity%20Metrics.pdf)
 
 </details>
