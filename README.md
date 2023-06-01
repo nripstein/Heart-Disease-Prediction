@@ -30,9 +30,10 @@
 - [Usage](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#usage)
 - [Dataset](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#dataset)
 - [Exploratory Data Analysis](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#exploratory-data-analysis)
-- [Data Imputation Techniques for Null Value Replacement](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#data-imputation-techniques-for-null-value-replacement)
 - [Feature Selection With Inferential Statistics](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#feature-selection-with-inferential-statistics)
+- [Data Imputation Techniques for Null Value Replacement](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#data-imputation-techniques-for-null-value-replacement)
 - [Classification Models](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#classification-models)
+- [Results and Model Performance Evaluation](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/README.md#results-and-model-performance-evaluation)
 
 <details open>
   <summary><H2>Objective</H2></summary>
@@ -143,14 +144,6 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
 </details>
 
 <details open>
-    <summary><h2>Data Imputation Techniques for Null Value Replacement</h2></summary>
-    	<p>As I discovered during Exploratory Data Analysis, the dataset has 172 samples with null values for Cholesterol (which were initially set to 0). I explored various data imputation techniques in an attempt to extract meaningful training data from such samples.</p>
-	<p>Initially, simple imputation strategies were deployed, namely: mean, median, and mode imputation. A noteworthy improvement in model performance was observed compared to models trained on the original dataset where null values were replaced by a default value of zero. Among these initial imputation techniques, mean imputation was found to deliver the best results for most machine learning models.</p>
-	<p>Building upon these initial findings, I applied a sophisticated imputation method: applying regression analysis to estimate the missing values. The regression techniques applied included Linear Regression, Ridge Regression, Lasso Regression, Random Forest Regression, Support Vector Regression, and Regression using Deep Learning. Each of these regression-based imputation techniques displayed a similar level of performance in terms of RMSE and MAE.</p>
-	<p>The performance of the regression models was found to be not as satisfactory as initially hypothesized, often falling short of the results obtained with mean imputation.  Despite this, it was observed that for Random Forest Classifiaction models, the regression-based methods exhibited strong results in terms of precision and specificity metrics. Particularly, Linear Regression and Ridge Regression-based imputation strategies performed well in these areas.</p>
-</details>
-
-<details open>
     <summary><h2>Feature Selection With Inferential Statistics</h2></summary>
 	<p>I used inferential statistics to determine the importance of the dataset's features.  If I found that a feature has no significant impact on the target variable, then it would be helpful to try models which discard that variable.  Removing an insignificant vairbale would reduce noise in the data, ideally lowering model overfitting and improving classification accuracy. For continuous features, I conducted an ANOVA, and for categorical features, I used a Chi-Squared Test.</p>
 	
@@ -170,6 +163,14 @@ The Chi-Squared test is a statistical hypothesis test that is used to determine 
    <H4>Chi-Squared Test Results</H4>
 Like the continuous features, I found a statistically significant difference in heart disease (p<0.05) according to each categorical feature.  This led me to decide to keep all categorical features as part of my classification models.   
 <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/e82a5f1a-96b3-4f26-80d5-fe57dad0d480" alt="chi_sq_results" width="50%">
+</details>
+																		      
+<details open>
+    <summary><h2>Data Imputation Techniques for Null Value Replacement</h2></summary>
+    	<p>As I discovered during Exploratory Data Analysis, the dataset has 172 samples with null values for Cholesterol (which were initially set to 0). I explored various data imputation techniques in an attempt to extract meaningful training data from such samples.</p>
+	<p>Initially, simple imputation strategies were deployed, namely: mean, median, and mode imputation. A noteworthy improvement in model performance was observed compared to models trained on the original dataset where null values were replaced by a default value of zero. Among these initial imputation techniques, mean imputation was found to deliver the best results for most machine learning models.</p>
+	<p>Building upon these initial findings, I applied a sophisticated imputation method: applying regression analysis to estimate the missing values. The regression techniques applied included Linear Regression, Ridge Regression, Lasso Regression, Random Forest Regression, Support Vector Regression, and Regression using Deep Learning. Each of these regression-based imputation techniques displayed a similar level of performance in terms of RMSE and MAE.</p>
+	<p>The performance of the regression models was found to be not as satisfactory as initially hypothesized, often falling short of the results obtained with mean imputation.  Despite this, it was observed that for Random Forest Classifiaction models, the regression-based methods exhibited strong results in terms of precision and specificity metrics. Particularly, Linear Regression and Ridge Regression-based imputation strategies performed well in these areas.</p>
 </details>
 
 
@@ -195,7 +196,8 @@ Like the continuous features, I found a statistically significant difference in 
   <p>A thorough analysis of over 80 models was conducted in this project, with the evaluation criteria based on several metrics including accuracy, precision, recall (sensitivity), F1-score, and specificity. Out of all the models evaluated, two demonstrated superior performance in their respective contexts.</p>
   <ol>
   <li><b>Deep Learning Model:</b></li>
-  <p>The top performing model by <b>Accuracy, Recall, </b>and<b> F1-Score</b> was a deep learning model trained on data where missing cholesterol values were imputed using the mean of the available values.  Performance metrics can be found in the below figures and in Tables 1 and 2.  To accompany the single-number metrics, PDFs were also constructed to quantify the uncertainty in this model's sensitivity/recall and specificity.  I wrote a comprehensive report detailing the generation of Sensitivity and Specificity PDFs and Credible Intervals which can be found in the repository, <a href="https://github.com/nripstein/Heart-Disease-Prediction/blob/main/Bayesian%20Approach%20to%20Assessing%20Uncertainty%20in%20Sensitivity%20and%20Specificity%20Metrics.pdf">or by clicking this link</a>
+  <p>The top performing model by <b>Accuracy, Recall, </b>and<b> F1-Score</b> was a deep learning model trained on data where missing cholesterol values were imputed using the mean of the available values.  Performance metrics can be found in the below figures and in Tables 1 and 2.  To accompany the single-number metrics, PDFs were also constructed to quantify the uncertainty in this model's sensitivity/recall and specificity.  I wrote a comprehensive report detailing the generation of Sensitivity and Specificity PDFs and Credible Intervals which can be found in the repository, <a href="https://github.com/nripstein/Heart-Disease-Prediction/blob/main/Bayesian%20Approach%20to%20Assessing%20Uncertainty%20in%20Sensitivity%20and%20Specificity%20Metrics.pdf">or by clicking this link</a></p>
+      <p align="center">
         <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/801074f9-c7d8-4b4a-ab8e-ac19945553f1" alt="Deep Learning Classifier Confusion Matrix" width="65%">
         <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/ff2014c7-9a2f-40be-a294-4183c662abbf" alt="Deep Learning Classifier Sensitivity and Specificity PDFs" width="65%">
       </p>
