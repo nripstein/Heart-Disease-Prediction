@@ -21,7 +21,7 @@
 </div>
 <br>
 
-[Explore the Jupyter Notebook](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/heart%20failure%20prediction%20notebook.ipynb)
+[Explore the Jupyter Notebook](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/heart%20disease%20prediction%20notebook.ipynb)
 
 [Try the Classification Website](https://heart-disease-prediction-ripstein.streamlit.app/)
 
