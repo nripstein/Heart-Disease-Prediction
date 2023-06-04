@@ -203,7 +203,7 @@ Like the continuous features, I found a statistically significant difference in 
       </p>
 
 
-<p align="center">  <table>  <caption>Table 1: Deep Learning Model Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>91.30%</td> <td>91.96%</td> <td>93.64</td> <td>92.79</td> <td>87.84%</td> </tr> </tbody> </table> </p> 
+<p align="center">  <table>  <caption>Table 1: Deep Learning Model Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>91.30%</td> <td>91.96%</td> <td>93.64%</td> <td>92.79%</td> <td>87.84%</td> </tr> </tbody> </table> </p> 
   <table>
     <caption>Table 2: Deep Learning Model Sensitivity and Specificity CI</caption>
     <thead>
@@ -236,7 +236,7 @@ Like the continuous features, I found a statistically significant difference in 
       </p>
 
 
-<p align="center">  <table>  <caption>Table 3: Random Forest Classifier Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>89.67%</td> <td>94.34%</td> <td>88.50</td> <td>91.32</td> <td>91.55%</td> </tr> </tbody> </table> 
+<p align="center">  <table>  <caption>Table 3: Random Forest Classifier Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>89.67%</td> <td>94.34%</td> <td>88.50%</td> <td>91.32%</td> <td>91.55%</td> </tr> </tbody> </table> 
   <table>
     <caption>Table 4: Random Forest Classifier Sensitivity and Specificity CI</caption>
     <thead>
