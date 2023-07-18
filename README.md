@@ -132,13 +132,11 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
         <details>
             <summary>How many examples are there of each categorical variable?</summary>
 	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/7e0ee7a7-1514-476c-983d-14ca90e77e42" alt="continuous_target" width="75%">
-            
         </details>
         <details>
             <summary>How does each categorical variable change in conjunction with the target variable?</summary>
             <br>
             <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="75%">
-	    
         </details>
     </ol>
 </details>
