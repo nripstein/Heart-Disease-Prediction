@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .prediction-result {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="18" max="150" step="1" value="18">
+
+        <label for="resting_BP">Resting Systolic Blood Pressure (mm Hg):</label>
+        <input type="number" id="resting_BP" name="resting_BP" step="1" value="120">
+
+        <label for="cholesterol">Serum Cholesterol (mm/dl):</label>
+        <input type="number" id="cholesterol" name="cholesterol" step="1" min="80" value="200">
+
+        <label for="MaxHR">Maximum Heart Rate Achieved in Exhaustion Test:</label>
+        <input type="number" id="MaxHR" name="MaxHR" step="1" min="50" value="140">
+
+        <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest (mm):</label>
+        <input type="number" id="oldpeak" name="oldpeak" step="0.1" min="-2" max="2" value="-0.1">
+
+
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+        </select>
+
+        <label for="chest_pain">Does the Patient Experience Chest Pain?:</label>
+        <select id="chest_pain" name="chest_pain">
+            <option value="No Chest Pain">No Chest Pain</option>
+            <option value="Typical Angina Pain">Typical Angina Pain</option>
+            <option value="Atypical Angina Pain">Atypical Angina Pain</option>
+            <option value="Non-Anginal Pain">Non-Anginal Pain</option>
+        </select>
+
+        <label for="fasting_bs">Blood Sugar After Fast (mg/dl):</label>
+        <select id="fasting_bs" name="fasting_bs">
+            <option value="120 or Under">120 or Under</option>
+            <option value="Over 120">Over 120</option>
+        </select>
+
+        <label for="resting_ECG">Resting Electrocardiogram Results:</label>
+        <select id="resting_ECG" name="resting_ECG">
+            <option value="Normal">Normal</option>
+            <option value="ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)">ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)</option>
+            <option value="Showing probable or definite left ventricular hypertrophy by Estes' criteria">Showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+        </select>
+
+        <label for="ExerciseAngina">Does the Patient Experience Exercise-Induced Angina?:</label>
+        <select id="ExerciseAngina" name="ExerciseAngina">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+
+        <label for="ST_Slope">ST Segment Slope during Exercise:</label>
+        <select id="ST_Slope" name="ST_Slope">
+            <option value="Sloping Upwards">Sloping Upwards</option>
+            <option value="Flat">Flat</option>
+            <option value="Sloping Downwards">Sloping Downwards</option>
+        </select>
+
+        <label for="selected_model">Classification Model:</label>
+        <select id="selected_model" name="selected_model">
+            <option value="Neural Network (Highest Accuracy and Sensitivity)">Neural Network (Highest Accuracy and Sensitivity)</option>
+            <option value="Random Forest Classifier (Highest Specificity)">Random Forest Classifier (Highest Specificity)</option>
+        </select>
+
+        <input type="submit" value="Predict">
+    </form>
+
+
+    <div class="prediction-result" id="prediction-result" style="display: none;"></div>
+
+    <script>
+        // Add event listener to the form submission
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Fetch the prediction result from the server
+            fetch("/predict", {
+                method: "POST",
+                body: new FormData(event.target)
+            })
+            .then(response => response.text())
+            .then(result => {
+                // Display the prediction result below the Predict button
+                document.getElementById("prediction-result").innerHTML = result;
+                document.getElementById("prediction-result").style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
