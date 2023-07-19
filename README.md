@@ -21,7 +21,7 @@
 </div>
 <br>
 
-[Explore the Jupyter Notebook](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/heart%20failure%20prediction%20notebook.ipynb)
+[Explore the Jupyter Notebook](https://github.com/nripstein/Heart-Disease-Prediction/blob/main/heart%20disease%20prediction%20notebook.ipynb)
 
 [Try the Classification Website](https://heart-disease-prediction-ripstein.streamlit.app/)
 
@@ -119,7 +119,7 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
         </details>
         <details open>
             <summary>How are continuous variables distributed (in particular, are they normally distributed)?</summary>
-	    <img src=https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/62b9a4ff-74a2-4a57-84e1-92a1a767425b" alt="continuous_distribution" width="75%">
+	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/62b9a4ff-74a2-4a57-84e1-92a1a767425b" alt="continuous_distribution" width="75%">
 	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/745cbb3c-0248-4b97-baee-aa6b309bee99" alt="qq_plots" width="75%">
 	      
 <p><strong>Key Takeaways:</strong></p>  <ol>  <li>Upon visually examining the distribution of age, resting blood pressure, and maximum heart rate, they appeared to resemble a normal distribution. However, the application of Q-Q plots indicated deviations from Gaussian distribution. Consequently, I conducted Shapiro-Wilk tests on each of these variables, which confirmed their non-normal distribution.</li>  <li>Notably, a considerable number of cholesterol values were assigned as 0 to represent null values.</li>  </ol>  <p><strong>Leveraging These Insights:</strong></p>  <ol>  <li>To address the departure from normality, I opted to employ the <code>StandardScaler()</code> function from the sklearn library. This transformation aimed to bring the data points closer to a normal distribution.</li>  <li>Initially, when constructing the baseline models, I retained the original cholesterol data without any modifications. However, to overcome the limitation imposed by the null cholesterol values, I employed a series of techniques which aim to replace the null values with numbers from which models can generate meaningful predictions.</li>  </ol>
@@ -132,13 +132,11 @@ fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [May 
         <details>
             <summary>How many examples are there of each categorical variable?</summary>
 	    <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/7e0ee7a7-1514-476c-983d-14ca90e77e42" alt="continuous_target" width="75%">
-            <p>Answer goes here...</p>
         </details>
         <details>
             <summary>How does each categorical variable change in conjunction with the target variable?</summary>
             <br>
             <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/d7aa282c-d841-4b64-806d-fb54b388b21f" alt="categorical_target" width="75%">
-	    <p>Answer goes here...</p>
         </details>
     </ol>
 </details>
@@ -162,6 +160,7 @@ The Chi-Squared test is a statistical hypothesis test that is used to determine 
 
    <H4>Chi-Squared Test Results</H4>
 Like the continuous features, I found a statistically significant difference in heart disease (p<0.05) according to each categorical feature.  This led me to decide to keep all categorical features as part of my classification models.   
+<br>
 <img src="https://github.com/nripstein/Heart-Disease-Prediction/assets/98430636/e82a5f1a-96b3-4f26-80d5-fe57dad0d480" alt="chi_sq_results" width="50%">
 </details>
 																		      
@@ -203,7 +202,7 @@ Like the continuous features, I found a statistically significant difference in 
       </p>
 
 
-<p align="center">  <table>  <caption>Table 1: Deep Learning Model Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>91.30%</td> <td>91.96%</td> <td>93.64</td> <td>92.79</td> <td>87.84%</td> </tr> </tbody> </table> </p> 
+<p align="center">  <table>  <caption>Table 1: Deep Learning Model Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>91.30%</td> <td>91.96%</td> <td>93.64%</td> <td>92.79%</td> <td>87.84%</td> </tr> </tbody> </table> </p> 
   <table>
     <caption>Table 2: Deep Learning Model Sensitivity and Specificity CI</caption>
     <thead>
@@ -236,7 +235,7 @@ Like the continuous features, I found a statistically significant difference in 
       </p>
 
 
-<p align="center">  <table>  <caption>Table 3: Random Forest Classifier Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>89.67%</td> <td>94.34%</td> <td>88.50</td> <td>91.32</td> <td>91.55%</td> </tr> </tbody> </table> 
+<p align="center">  <table>  <caption>Table 3: Random Forest Classifier Performance</caption> <thead> <tr> <th>Accuracy</th> <th>Precision</th> <th>Recall</th> <th>F1-Score</th> <th>Specificity</th> </tr> </thead> <tbody> <tr> <td>89.67%</td> <td>94.34%</td> <td>88.50%</td> <td>91.32%</td> <td>91.55%</td> </tr> </tbody> </table> 
   <table>
     <caption>Table 4: Random Forest Classifier Sensitivity and Specificity CI</caption>
     <thead>
